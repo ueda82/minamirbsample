@@ -1,6 +1,6 @@
 # -*- encoding: UTF-8 -*-
 require 'sinatra'
 
-get '/' do
-  'Hello world!'
+get '/hello' do
+  'Hello Ajax!'
 end
