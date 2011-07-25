@@ -5,19 +5,6 @@
         <script type="text/javascript" src="/js/jquery-1.6.2.js"></script>
         <script type="text/javascript">
             <!--
-            //同期通信
-            function sync(){
-                sleepTime = $("#inputArea").get()[0].value;
-                var data= $.ajax({
-                    async: false,
-                    type: "GET",
-                    url: "./sleep",
-                    data: "text=" + sleepTime ,
-                    timeout: 1000,
-                    error:function(XMLHttpRequest, textStatus, errorThrown){alert("エラーです")}
-                }).responseText;
-                $("#view").append(data +"<br>");
-            }
             //非同期通信
             function async(){
                 sleepTime = $("#inputArea").get()[0].value;
@@ -34,6 +21,19 @@
                         alert("エラーです")
                     }
                 });
+            }
+            //同期通信
+            function sync(){
+                sleepTime = $("#inputArea").get()[0].value;
+                var data= $.ajax({
+                    async: false,
+                    type: "GET",
+                    url: "./sleep",
+                    data: "text=" + sleepTime ,
+                    timeout: 1000,
+                    error:function(XMLHttpRequest, textStatus, errorThrown){alert("エラーです")}
+                }).responseText;
+                $("#view").append(data +"<br>");
             }
             // -->
         </script>
