@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>async Ajax</title>
+        <script type="text/javascript" src="/js/jquery-1.6.2.js"></script>
+        <script type="text/javascript">
+            <!--
+            //同期通信
+            function sync(){
+                sleepTime = $("#inputArea").get()[0].value;
+                var data= $.ajax({
+                    async: false,
+                    type: "GET",
+                    url: "./sleep",
+                    data: "text=" + sleepTime ,
+                    timeout: 1000,
+                    error:function(XMLHttpRequest, textStatus, errorThrown){alert("エラーです")}
+                }).responseText;
+                $("#view").append(data +"<br>");
+            }
+            //非同期通信
+            function async(){
+                sleepTime = $("#inputArea").get()[0].value;
+                var data= $.ajax({
+                    async: true,
+                    type: "GET",
+                    url: "./sleep",
+                    data: "text=" + sleepTime ,
+                    timeout: 1000,
+                    success: function(data,status){
+                        $("#view").append(data +"<br>");
+                    },
+                    error:function(XMLHttpRequest, status, errorThrown){
+                        alert("エラーです")
+                    }
+                });
+            }
+            // -->
+        </script>
+    </head>
+    <body>
+        <p>
+            <button onclick="sync()">同期</button>
+            <button onclick="async()">非同期</button>
+            <BR/>
+            <input type="text" id="inputArea"></input>
+        </p>
+        <p id="view">
+        </p>
+    </body>
+</html>

@@ -6,14 +6,28 @@
         <script type="text/javascript">
             <!--
             function hello(){
-                alert("Hello javascript");
+                alert("Hello javascript ");
+            }
+            function hello2(){
+                $.get("./helloAjax", 
+                    function(data){
+                        alert(data);
+                });
+            }
+            function echo(){
+                $.get("./echo", 
+                {text : $("#inputArea").get()[0].value}, 
+                function(data){
+                     alert(data);
+                 }
+              );
             }
             // -->
         </script>
     </head>
     <body>
         <p>
-            <button onclick="hello()">問題１</button>
+            <button onclick="hello2()">問題１</button>
         </p>
         <p>
             <button onclick="echo()">こだま</button>

@@ -1,0 +1,17 @@
+[前準備]
+    ruby hello.rb
+
+    http://localhost:4567/helloAjax を開く
+    http://localhost:4567/hello.html を開く
+[例題] 
+    例題ボタンがあります。現在、クリックするとhello()関数をコールし、
+    「Hello javascript」と表示されます。
+    例題ボタンを下記の仕様に変更してください。
+    ・hello2()関数を作成し、hello2()関数をコールするように変更
+    ・「/helloAjax」をjqueryライブラリの$.get()メソッドを使って
+      XHRで通信を行い結果をalertで表示 してください。
+
+[問題]
+    こだまボタンとinputボックスがあります。
+    こだまボタンを押すとXHR通信を行い、inputボックス + 一言を
+    alert で表示するプログラムをつくってください。
