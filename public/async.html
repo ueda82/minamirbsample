@@ -9,16 +9,12 @@
             function call(){
                 sleepTime = $("#inputArea").get()[0].value;
                 var data= $.ajax({
-                    async: false,
+                    async: true,
                     type: "GET",
                     url: "./sleep",
                     data: "text=" + sleepTime ,
-                   // timeout: 1000,
                     success: function(data,status){
                         $("#view").append(data +"<br>");
-                    },
-                    error:function(XMLHttpRequest, status, errorThrown){
-                        alert("エラーです")
                     }
                 });
             }
