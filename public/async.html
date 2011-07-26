@@ -9,7 +9,7 @@
             function call(){
                 sleepTime = $("#inputArea").get()[0].value;
                 var data= $.ajax({
-                    async: true,
+                    async: false,
                     type: "GET",
                     url: "./sleep",
                     data: "text=" + sleepTime ,
