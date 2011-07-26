@@ -6,7 +6,7 @@
         <script type="text/javascript">
             <!--
             //非同期通信
-            function async(){
+            function call(){
                 sleepTime = $("#inputArea").get()[0].value;
                 var data= $.ajax({
                     async: true,
@@ -22,26 +22,12 @@
                     }
                 });
             }
-            //同期通信
-            function sync(){
-                sleepTime = $("#inputArea").get()[0].value;
-                var data= $.ajax({
-                    async: false,
-                    type: "GET",
-                    url: "./sleep",
-                    data: "text=" + sleepTime ,
-                    timeout: 1000,
-                    error:function(XMLHttpRequest, textStatus, errorThrown){alert("エラーです")}
-                }).responseText;
-                $("#view").append(data +"<br>");
-            }
             // -->
         </script>
     </head>
     <body>
         <p>
-            <button onclick="sync()">同期</button>
-            <button onclick="async()">非同期</button>
+            <button onclick="call()">通信</button>
             <BR/>
             <input type="text" id="inputArea"></input>
         </p>
