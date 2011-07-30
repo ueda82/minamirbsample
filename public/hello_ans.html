@@ -9,7 +9,7 @@
                 alert("Hello javascript ");
             }
             function hello2(){
-                $.get("./helloAjax", 
+                $.get("./helloAjax",{text : 'ueda'}, 
                     function(data){
                         alert(data);
                 });
@@ -18,8 +18,8 @@
                 $.get("./echo", 
                 {text : $("#inputArea").get()[0].value}, 
                 function(data){
-                     alert(data);
-                 }
+                    $("#outputArea").get()[0].value =data;
+                }
               );
             }
             // -->
@@ -27,12 +27,14 @@
     </head>
     <body>
         <p>
-            <button onclick="hello2()">問題１</button>
+            <button onclick="hello2()">hello</button>
         </p>
         <p>
             <button onclick="echo()">こだま</button>
-            <BR/>
-            <input type="text" id="inputArea"></input>
+            <br/>
+            <input type="text" id="inputArea"/>
+            <br/>
+            <input type="text" id="outputArea"/>
         </p>
     </body>
 </html>

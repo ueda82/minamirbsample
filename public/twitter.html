@@ -6,13 +6,18 @@
         <script type="text/javascript">
             <!--
             function getTimeLine(){
-                $.getJSON('http://search.twitter.com/search.json?callback=?',
-                  { q: $("#inputArea").get()[0].value },
-                  function(data, status){
-                    $.each(data.results, function(i, item){
-                      console.log(item.text);
-                    });
-                  }
+                $.getJSON(
+                    'http://search.twitter.com/search.json?callback=?',
+                    { q: $("#inputArea").get()[0].value },
+                    function(data){
+                    $.each(
+                        data.results, 
+                        function(i, item){
+                            $('#timeline').prepend('<li>' + item.text +'     from  ' + item.from_user + '</li>');
+                            // console.log(item.text);
+                        }
+                    );
+                    }
                 );
             }
             // -->
@@ -21,7 +26,7 @@
     <body>
         <p>
             <button onclick="getTimeLine()">タイムライン表示</button>
-            <input type="text" id="inputArea"></input>
+            <input type="text" id="inputArea"/>
         </p>
         <p id="timeline">
         </p>
